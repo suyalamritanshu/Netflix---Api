@@ -14,6 +14,7 @@ dotenv.config();
 //Database Connection
 
 DbConnect();
+app.use(express.json());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header(
@@ -30,7 +31,6 @@ app.use((req, res, next) => {
     next()
   })
 
-app.use(express.json());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
