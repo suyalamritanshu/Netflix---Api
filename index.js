@@ -15,6 +15,13 @@ dotenv.config();
 
 DbConnect();
 app.use(express.json());
+var corsOptions = {
+    origin: 'http://localhost:8080',
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: "GET, PUT"
+}
+
+app.use(cors(corsOptions));
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*")
 //     res.header(
